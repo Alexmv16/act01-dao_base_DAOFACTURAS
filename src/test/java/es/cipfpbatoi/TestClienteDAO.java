@@ -26,7 +26,7 @@ class TestClienteDAO {
 	Cliente registroVacio = new Cliente();
 	Cliente registroExiste1 = new Cliente(1, "Matt Design", "C/ Pintor Sorolla, 3");
 	Cliente registroExiste2 = new Cliente(4, "Luis Llull", "C/ Salvador Dalí, 3");
-	Cliente registroNoExiste = new Cliente(100, null, null);
+	Cliente registroNoExiste = new Cliente(100, "no existe", "no existe");
 	Cliente registroNuevo = new Cliente("insert nombre test", "insert direccion test");
 	Cliente registroNuevoError = new Cliente("insert nombre test 111111111111111111111111111111111111111111",
 			"insert direccion test");
@@ -111,9 +111,22 @@ class TestClienteDAO {
 		respuestaObtenida = capaDao.update(registroModificarBorrarError);
 		assertFalse(respuestaObtenida);
 	}
-
+	
 	@Test
 	@Order(4)
+	void testSave() {		
+		Boolean respuestaObtenida = capaDao.save(registroModificarBorrar);
+		assertTrue(respuestaObtenida);
+		respuestaObtenida = capaDao.save(registroNoExiste);
+		assertTrue(respuestaObtenida);
+		assertNotEquals(0, registroNoExiste.getId());
+		assertEquals(7, registroNoExiste.getId());
+		respuestaObtenida = capaDao.save(registroModificarBorrarError);
+		assertFalse(respuestaObtenida);
+	}
+
+	@Test
+	@Order(5)
 	void testDelete() {
 		boolean respuestaObtenida = capaDao.delete(registroModificarBorrar);
 		assertTrue(respuestaObtenida);
