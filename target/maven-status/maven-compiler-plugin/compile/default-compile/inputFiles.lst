@@ -1,0 +1,8 @@
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/vista/App.java
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/modelo/Grupo.java
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/dao/ConexionBD.java
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/modelo/Vendedor.java
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/modelo/Articulo.java
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/dao/ClienteDAO.java
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/modelo/Cliente.java
+/home/sergio/Escritorio/CURSO2223/AD/UD5-patrones-modelos-componentes/casos/act01-dao/src/main/java/es/cipfpbatoi/dao/GenericDAO.java
