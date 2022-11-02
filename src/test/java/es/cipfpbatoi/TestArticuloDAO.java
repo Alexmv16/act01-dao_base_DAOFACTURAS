@@ -179,4 +179,17 @@ class TestArticuloDAO {
 		assertEquals(7, numRegistrosObtenido);
 	}
 
+	@Test
+	@Order(1)
+	void testFindByGrupo() {
+		int numRegistrosObtenido = capaDao.findByGrupo(new Grupo(1000, null)).size();
+		assertEquals(0, numRegistrosObtenido);
+
+		numRegistrosObtenido = capaDao.findByGrupo(new Grupo(1, null)).size();
+		assertEquals(7, numRegistrosObtenido);
+
+		numRegistrosObtenido = capaDao.findByGrupo(new Grupo(2, null)).size();
+		assertEquals(1, numRegistrosObtenido);
+	}
+	
 }
