@@ -45,7 +45,7 @@ class TestGrupoDAO {
 			ConexionBD.getConexion().createStatement()
 					.executeUpdate("delete from " + BD + "." + TABLA + " where id >= " + numRegistrosEsperado);
 
-			if (ConexionBD.getConexion().getMetaData().getDatabaseProductName() == "MariaDB") {
+			if (ConexionBD.getConexion().getMetaData().getDatabaseProductName().equals("MariaDB")) {
 				ConexionBD.getConexion().createStatement()
 						.executeUpdate("ALTER TABLE " + BD + "." + TABLA + " AUTO_INCREMENT = " + autoIncrement);
 			} else { // PostgreSQL
