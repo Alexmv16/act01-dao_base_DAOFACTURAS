@@ -72,6 +72,7 @@ class TestVendedorDAO {
 	@Order(1)
 	void testFind() {
 		Vendedor registroObtenido = capaDao.find(registroExiste1.getId());
+		System.out.println(registroExiste1);
 		Vendedor registroEsperado = registroExiste1;
 		assertEquals(registroEsperado, registroObtenido);
 
@@ -96,7 +97,7 @@ class TestVendedorDAO {
 		Boolean respuestaObtenida = capaDao.insert(registroNuevo);
 		assertTrue(respuestaObtenida);
 		assertNotEquals(0, registroNuevo.getId());
-		assertEquals(4, registroNuevo.getId());
+		assertEquals(numRegistrosEsperado + 1, registroNuevo.getId());
 		respuestaObtenida = capaDao.insert(registroNuevoError);
 		assertFalse(respuestaObtenida);
 	}
@@ -111,16 +112,16 @@ class TestVendedorDAO {
 		respuestaObtenida = capaDao.update(registroModificarBorrarError);
 		assertFalse(respuestaObtenida);
 	}
-	
+
 	@Test
 	@Order(4)
-	void testSave() {		
+	void testSave() {
 		Boolean respuestaObtenida = capaDao.save(registroModificarBorrar);
 		assertTrue(respuestaObtenida);
 		respuestaObtenida = capaDao.save(registroNoExiste);
 		assertTrue(respuestaObtenida);
 		assertNotEquals(0, registroNoExiste.getId());
-		assertEquals(5, registroNoExiste.getId());
+		assertEquals(numRegistrosEsperado + 2, registroNoExiste.getId());
 		respuestaObtenida = capaDao.save(registroModificarBorrarError);
 		assertFalse(respuestaObtenida);
 	}

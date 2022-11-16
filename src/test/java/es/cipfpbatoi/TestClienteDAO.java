@@ -96,7 +96,7 @@ class TestClienteDAO {
 		Boolean respuestaObtenida = capaDao.insert(registroNuevo);
 		assertTrue(respuestaObtenida);
 		assertNotEquals(0, registroNuevo.getId());
-		assertEquals(6, registroNuevo.getId());
+		assertEquals(numRegistrosEsperado + 1, registroNuevo.getId());
 		respuestaObtenida = capaDao.insert(registroNuevoError);
 		assertFalse(respuestaObtenida);
 	}
@@ -111,16 +111,16 @@ class TestClienteDAO {
 		respuestaObtenida = capaDao.update(registroModificarBorrarError);
 		assertFalse(respuestaObtenida);
 	}
-	
+
 	@Test
 	@Order(4)
-	void testSave() {		
+	void testSave() {
 		Boolean respuestaObtenida = capaDao.save(registroModificarBorrar);
 		assertTrue(respuestaObtenida);
 		respuestaObtenida = capaDao.save(registroNoExiste);
 		assertTrue(respuestaObtenida);
 		assertNotEquals(0, registroNoExiste.getId());
-		assertEquals(7, registroNoExiste.getId());
+		assertEquals(numRegistrosEsperado + 2, registroNoExiste.getId());
 		respuestaObtenida = capaDao.save(registroModificarBorrarError);
 		assertFalse(respuestaObtenida);
 	}
@@ -155,7 +155,7 @@ class TestClienteDAO {
 	void testFindExample() {
 		int numRegistrosObtenido = capaDao.findByExample(registroVacio).size();
 		assertEquals(numRegistrosEsperado, numRegistrosObtenido);
-		
+
 		numRegistrosObtenido = capaDao.findByExample(registroExiste1).size();
 		assertEquals(1, numRegistrosObtenido);
 

@@ -3,7 +3,6 @@ package es.cipfpbatoi;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -95,7 +94,7 @@ class TestArticuloDAO {
 		Boolean respuestaObtenida = capaDao.insert(registroNuevo);
 		assertTrue(respuestaObtenida);
 		assertNotEquals(0, registroNuevo.getId());
-		assertEquals(10, registroNuevo.getId());
+		assertEquals(numRegistrosEsperado + 1, registroNuevo.getId());
 		respuestaObtenida = capaDao.insert(registroNuevoError);
 		assertFalse(respuestaObtenida);
 	}
@@ -119,7 +118,7 @@ class TestArticuloDAO {
 		respuestaObtenida = capaDao.save(registroNoExiste);
 		assertTrue(respuestaObtenida);
 		assertNotEquals(0, registroNoExiste.getId());
-		assertEquals(12, registroNoExiste.getId());
+		assertEquals(numRegistrosEsperado + 3, registroNoExiste.getId());
 		respuestaObtenida = capaDao.save(registroModificarBorrarError);
 		assertFalse(respuestaObtenida);
 	}
@@ -191,5 +190,5 @@ class TestArticuloDAO {
 		numRegistrosObtenido = capaDao.findByGrupo(new Grupo(2, null)).size();
 		assertEquals(1, numRegistrosObtenido);
 	}
-	
+
 }
