@@ -263,7 +263,7 @@ class TestFacturaDAO {
 
 	@Test
 	@Order(8)
-	void testGetImporteTotalExists() {
+	void testGetImporteTotal() {
 		double respuestaObtenida = capaDao.getImporteTotal(registroExiste1.getId());
 		assertEquals(112, respuestaObtenida);
 		respuestaObtenida = capaDao.getImporteTotal(registroExiste2.getId());
