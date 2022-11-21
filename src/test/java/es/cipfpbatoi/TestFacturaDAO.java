@@ -229,6 +229,15 @@ class TestFacturaDAO {
 		respuestaObtenida = capaDao.save(registroModificarBorrarError);
 		assertFalse(respuestaObtenida);
 	}
+	
+	@Test
+	@Order(5)
+	void testDelete() {
+		boolean respuestaObtenida = capaDao.delete(registroModificarBorrar);
+		assertTrue(respuestaObtenida);
+		respuestaObtenida = capaDao.delete(registroNoExiste.getId());
+		assertFalse(respuestaObtenida);
+	}
 
 	@Test
 	@Order(1)
