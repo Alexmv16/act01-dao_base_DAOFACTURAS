@@ -5,14 +5,14 @@ import java.util.Objects;
 public class LineaFactura {
 	private int linea;
 	private int factura;
-	private Articulo articulo;
+	private int articulo;
 	private int cantidad;
 	private float importe;
 	
 	public LineaFactura() {		
 	}
 	
-	public LineaFactura(int linea, int factura, Articulo articulo, int cantidad, float importe) {
+	public LineaFactura(int linea, int factura, int articulo, int cantidad, float importe) {
 		super();
 		this.linea = linea;
 		this.factura = factura;
@@ -20,22 +20,20 @@ public class LineaFactura {
 		this.cantidad = cantidad;
 		this.importe = importe;
 	}
-
-	public LineaFactura(int linea, int factura, Articulo articulo, int cantidad) {
+	
+	public LineaFactura(int factura, int articulo, int cantidad) {
+		super();
+		this.factura = factura;
+		this.articulo = articulo;
+		this.cantidad = cantidad;
+	}
+	
+	public LineaFactura(int linea, int factura, int articulo, int cantidad) {
 		super();
 		this.linea = linea;
 		this.factura = factura;
 		this.articulo = articulo;
 		this.cantidad = cantidad;
-		this.importe = articulo.getPrecio() * cantidad;
-	}	
-	
-	public LineaFactura(int factura, Articulo articulo, int cantidad) {
-		super();
-		this.factura = factura;
-		this.articulo = articulo;
-		this.cantidad = cantidad;
-		this.importe = articulo.getPrecio() * cantidad;
 	}
 
 	public int getLinea() {
@@ -54,13 +52,12 @@ public class LineaFactura {
 		this.factura = factura;
 	}
 
-	public Articulo getArticulo() {
+	public int getArticulo() {
 		return articulo;
 	}
 
-	public void setArticulo(Articulo articulo) {
+	public void setArticulo(int articulo) {
 		this.articulo = articulo;
-		this.importe = articulo.getPrecio() * this.cantidad;
 	}
 
 	public int getCantidad() {
@@ -69,7 +66,6 @@ public class LineaFactura {
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
-		this.importe = this.articulo.getPrecio() * this.cantidad;
 	}
 
 	public float getImporte() {
@@ -100,9 +96,11 @@ public class LineaFactura {
 		if (getClass() != obj.getClass())
 			return false;
 		LineaFactura other = (LineaFactura) obj;
-		return Objects.equals(articulo, other.articulo) && cantidad == other.cantidad && factura == other.factura
+		return articulo == other.articulo && cantidad == other.cantidad && factura == other.factura
 				&& Float.floatToIntBits(importe) == Float.floatToIntBits(other.importe) && linea == other.linea;
 	}
+
+	
 	
 	
 	

@@ -7,12 +7,12 @@ public class Articulo {
 	private String nombre;
 	private float precio;
 	private String codigo;
-	private Grupo grupo;
+	private int grupo;
 	
 	public Articulo() {		
 	}
 
-	public Articulo(String nombre, float precio, String codigo, Grupo grupo) {
+	public Articulo(String nombre, float precio, String codigo, int grupo) {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
@@ -20,7 +20,7 @@ public class Articulo {
 		this.grupo = grupo;
 	}
 	
-	public Articulo(int id, String nombre, float precio, String codigo, Grupo grupo) {
+	public Articulo(int id, String nombre, float precio, String codigo, int grupo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
@@ -60,18 +60,18 @@ public class Articulo {
 		this.codigo = codigo;
 	}
 
-	public Grupo getGrupo() {
+	public int getGrupo() {
 		return grupo;
 	}
 
-	public void setGrupo(Grupo grupo) {
+	public void setGrupo(int grupo) {
 		this.grupo = grupo;
 	}
 
 	@Override
 	public String toString() {
 		return "Articulo [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", codigo=" + codigo + ", grupo="
-				+ grupo.getDescripcion() + "]";
+				+ grupo + "]";
 	}
 
 	@Override
@@ -88,10 +88,12 @@ public class Articulo {
 		if (getClass() != obj.getClass())
 			return false;
 		Articulo other = (Articulo) obj;
-		return Objects.equals(codigo, other.codigo) && Objects.equals(grupo, other.grupo) && id == other.id
+		return Objects.equals(codigo, other.codigo) && grupo == other.grupo && id == other.id
 				&& Objects.equals(nombre, other.nombre)
 				&& Float.floatToIntBits(precio) == Float.floatToIntBits(other.precio);
 	}
+
+	
 	
 	
 	

@@ -6,22 +6,22 @@ import java.util.Objects;
 public class Vendedor {
 	private int id;
 	private String nombre;
-	private LocalDate fecha_ingreso;
+	private LocalDate fechaIngreso;
 	private float salario;
 
 	public Vendedor() {
 	}
 
-	public Vendedor(String nombre, LocalDate fecha_ingreso, float salario) {
+	public Vendedor(String nombre, LocalDate fechaIngreso, float salario) {
 		this.nombre = nombre;
-		this.fecha_ingreso = fecha_ingreso;
+		this.fechaIngreso = fechaIngreso;
 		this.salario = salario;
 	}
 
-	public Vendedor(int id, String nombre, LocalDate fecha_ingreso, float salario) {
+	public Vendedor(int id, String nombre, LocalDate fechaIngreso, float salario) {
 		this.id = id;
 		this.nombre = nombre;
-		this.fecha_ingreso = fecha_ingreso;
+		this.fechaIngreso = fechaIngreso;
 		this.salario = salario;
 	}
 
@@ -41,12 +41,12 @@ public class Vendedor {
 		this.nombre = nombre;
 	}
 
-	public LocalDate getFecha_ingreso() {
-		return fecha_ingreso;
+	public LocalDate getFechaIngreso() {
+		return fechaIngreso;
 	}
 
-	public void setFecha_ingreso(LocalDate fecha_ingreso) {
-		this.fecha_ingreso = fecha_ingreso;
+	public void setFechaIngreso(LocalDate fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
 	}
 
 	public float getSalario() {
@@ -59,13 +59,13 @@ public class Vendedor {
 
 	@Override
 	public String toString() {
-		return "Vendedor [id=" + id + ", nombre=" + nombre + ", fecha_ingreso=" + fecha_ingreso + ", salario=" + salario
+		return "Vendedor [id=" + id + ", nombre=" + nombre + ", fecha_ingreso=" + fechaIngreso + ", salario=" + salario
 				+ "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(fecha_ingreso, id, nombre, salario);
+		return Objects.hash(fechaIngreso, id, nombre, salario);
 	}
 
 	@Override
@@ -77,11 +77,9 @@ public class Vendedor {
 		if (getClass() != obj.getClass())
 			return false;
 		Vendedor other = (Vendedor) obj;
-		return Objects.equals(fecha_ingreso, other.fecha_ingreso) && id == other.id
+		return Objects.equals(fechaIngreso, other.fechaIngreso) && id == other.id
 				&& Objects.equals(nombre, other.nombre)
 				&& Float.floatToIntBits(salario) == Float.floatToIntBits(other.salario);
 	}
 
-	
-	
 }

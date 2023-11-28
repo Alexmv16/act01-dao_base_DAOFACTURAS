@@ -7,48 +7,28 @@ import java.util.Objects;
 public class Factura {
 	private int id;
 	private LocalDate fecha;
-	private Cliente cliente;
-	private Vendedor vendedor;
+	private int cliente;
+	private int vendedor;
 	private String formaPago;
-	private List<LineaFactura> lineas;
+	// private List<LineaFactura> lineas;
 
 	public Factura() {
-		this.lineas = null;
+
 	}
 
-	public Factura(LocalDate fecha, Cliente cliente, Vendedor vendedor, String formaPago) {
+	public Factura(LocalDate fecha, int cliente, int vendedor, String formaPago) {
 		this.fecha = fecha;
 		this.cliente = cliente;
 		this.vendedor = vendedor;
 		this.formaPago = formaPago;
-		this.lineas = null;
 	}
 
-	public Factura(LocalDate fecha, Cliente cliente, Vendedor vendedor, String formaPago, List<LineaFactura> lineas) {
-		this.fecha = fecha;
-		this.cliente = cliente;
-		this.vendedor = vendedor;
-		this.formaPago = formaPago;
-		this.lineas = lineas;
-	}
-
-	public Factura(int id, LocalDate fecha, Cliente cliente, Vendedor vendedor, String formaPago) {
+	public Factura(int id, LocalDate fecha, int cliente, int vendedor, String formaPago) {
 		this.id = id;
 		this.fecha = fecha;
 		this.cliente = cliente;
 		this.vendedor = vendedor;
 		this.formaPago = formaPago;
-		this.lineas = null;
-	}
-
-	public Factura(int id, LocalDate fecha, Cliente cliente, Vendedor vendedor, String formaPago,
-			List<LineaFactura> lineas) {
-		this.id = id;
-		this.fecha = fecha;
-		this.cliente = cliente;
-		this.vendedor = vendedor;
-		this.formaPago = formaPago;
-		this.lineas = lineas;
 	}
 
 	public int getId() {
@@ -67,19 +47,19 @@ public class Factura {
 		this.fecha = fecha;
 	}
 
-	public Cliente getCliente() {
+	public int getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(int cliente) {
 		this.cliente = cliente;
 	}
 
-	public Vendedor getVendedor() {
+	public int getVendedor() {
 		return vendedor;
 	}
 
-	public void setVendedor(Vendedor vendedor) {
+	public void setVendedor(int vendedor) {
 		this.vendedor = vendedor;
 	}
 
@@ -91,23 +71,15 @@ public class Factura {
 		this.formaPago = formaPago;
 	}
 
-	public List<LineaFactura> getLineas() {
-		return lineas;
-	}
-
-	public void setLineas(List<LineaFactura> lineas) {
-		this.lineas = lineas;
-	}
-
 	@Override
 	public String toString() {
-		return "Factura [id=" + id + ", fecha=" + fecha + ", cliente=" + cliente.getId() + " " + cliente.getNombre()
-				+ ", vendedor=" + vendedor.getId() + " " + vendedor.getNombre() + ", formaPago=" + formaPago + "]";
+		return "Factura [id=" + id + ", fecha=" + fecha + ", cliente=" + cliente + ", vendedor=" + vendedor
+				+ ", formaPago=" + formaPago + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cliente, fecha, formaPago, id, lineas, vendedor);
+		return Objects.hash(cliente, fecha, formaPago, id, vendedor);
 	}
 
 	@Override
@@ -119,9 +91,9 @@ public class Factura {
 		if (getClass() != obj.getClass())
 			return false;
 		Factura other = (Factura) obj;
-		return Objects.equals(cliente, other.cliente) && Objects.equals(fecha, other.fecha)
-				&& Objects.equals(formaPago, other.formaPago) && id == other.id && Objects.equals(lineas, other.lineas)
-				&& Objects.equals(vendedor, other.vendedor);
+		return cliente == other.cliente && Objects.equals(fecha, other.fecha)
+				&& Objects.equals(formaPago, other.formaPago) && id == other.id && vendedor == other.vendedor;
 	}
 
+	
 }
